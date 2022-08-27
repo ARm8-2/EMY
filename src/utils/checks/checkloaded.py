@@ -7,7 +7,6 @@ from utils.settings import BASEDIR, client
 
 
 async def _checkloadedext(ctx, extension=None):
-    print('checkloaded')
     dir = {'loaded': [], 'notloaded':  []}
 
     if extension=='all' or extension==None:
