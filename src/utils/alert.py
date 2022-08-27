@@ -18,9 +18,9 @@ async def _alert(ctx: commands.Context, action, data=None):
 
     if action=="load" or action=="reload" or action=="unload":
         if data!='all':
-            description.replace("{data}", f'{data}.py')
+            description=description.replace("{data}", f'{data}.py')
         elif data=='all':
-            description.replace("{data}", f'all cogs')
+            description=description.replace("{data}", f'all cogs')
 
     if action=='checkloaded':
         embed.add_field(name="Loaded", value=str(data["loaded"]))
