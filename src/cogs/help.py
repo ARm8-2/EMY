@@ -1,8 +1,6 @@
 
-import discord
 from commands.help import _help
 from discord.ext import commands
-from utils.settings import _getprefix, color
 
 
 class Help(commands.Cog):
