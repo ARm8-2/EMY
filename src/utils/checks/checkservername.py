@@ -1,13 +1,15 @@
 
-from utils.settings import BASE
+import json
+import os
 
-import json, os
+from utils.settings import BASEDIR
+
 
 async def _checkservername(guild):
-    with open(os.path.join(BASE, 'resources', 'serverdata.json'), 'r') as f:
+    with open(os.path.join(BASEDIR, 'resources', 'serverdata.json'), 'r') as f:
         data = json.load(f)
 
     data[str(guild.id)]["servername"] = str(guild.name)
 
-    with open(os.path.join(BASE, 'resources', 'serverdata.json'), 'w') as f:
+    with open(os.path.join(BASEDIR, 'resources', 'serverdata.json'), 'w') as f:
         json.dump(data, f, indent=4)

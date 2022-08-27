@@ -1,8 +1,7 @@
 
-from utils.settings import client
 from utils.checks.checkloaded import _checkloadedext
 from utils.checks.checkservername import _checkservername
-
+from utils.settings import client
 
 datachecks = False
 

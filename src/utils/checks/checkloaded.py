@@ -1,10 +1,9 @@
 
-from utils.settings import client
-from utils.settings import BASE
-from utils.alert import _alert
-
 import os
+
 from discord.ext import commands
+from utils.alert import _alert
+from utils.settings import BASEDIR, client
 
 
 async def _checkloadedext(ctx, extension=None):
@@ -12,7 +11,7 @@ async def _checkloadedext(ctx, extension=None):
     dir = {'loaded': [], 'notloaded':  []}
 
     if extension=='all' or extension==None:
-        for filename in os.listdir(os.path.join(BASE, 'src', 'cogs')):
+        for filename in os.listdir(os.path.join(BASEDIR, 'src', 'cogs')):
             if filename.endswith('.py'):
                 try:
                     client.load_extension(f'cogs.{filename[:-3]}')

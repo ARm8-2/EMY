@@ -1,23 +1,32 @@
 
 import json
-import discord
 import os
+
+import discord
 from discord.ext import commands
+from dotenv import load_dotenv
 
-BASE = os.getcwd()
-if BASE.endswith('src'):
-    n = BASE.rfind("\\")
-    BASE = BASE[0: n+1]
+load_dotenv()
 
-with open(os.path.join(BASE, 'src', 'settings', 'config.json'), 'r') as f:
+token = os.getenv('TOKEN')
+
+BASEDIR = os.getcwd()
+if BASEDIR.endswith('src'):
+    n = BASEDIR.rfind("\\")
+    BASEDIR = BASEDIR[0: n+1]
+
+with open(os.path.join(BASEDIR, 'src', 'settings', 'config.json'), 'r') as f:
     data = json.load(f)
-    token = data["token"]
+    if data["token"]:
+        token = data["token"]
+    else:
+        token = os.getenv('TOKEN')
     prefix = data["prefix"]
     ownerid = data["ownerid"]
     color = int(data["color"], 16)
 
 def _getprefix(client, ctx):
-    with open(os.path.join(BASE, 'resources', 'serverdata.json'), 'r') as f:
+    with open(os.path.join(BASEDIR, 'resources', 'serverdata.json'), 'r') as f:
         data = json.load(f)
 
     if ctx.guild is None:

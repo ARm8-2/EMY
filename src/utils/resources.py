@@ -1,25 +1,26 @@
 
-from utils.settings import color
-from utils.settings import BASE
+import json
+import os
 
-import json, os
 import discord
+
+from utils.settings import BASEDIR, color
 
 
 async def _changeprefix(ctx, prefix):
-    with open(os.path.join(BASE, 'resources', 'serverdata.json'), 'r') as f:
+    with open(os.path.join(BASEDIR, 'resources', 'serverdata.json'), 'r') as f:
         data = json.load(f)
 
     data[str(ctx.guild.id)]["prefix"] = prefix
 
-    with open(os.path.join(BASE, 'resources', 'serverdata.json'), 'w') as f:
+    with open(os.path.join(BASEDIR, 'resources', 'serverdata.json'), 'w') as f:
         json.dump(data, f, indent=4)
 
     embed = discord.Embed(title="", description=f"Prefix changed to {prefix}", color=color)
     await ctx.send(embed=embed)
 
 async def _miscchannel(ctx, channel: discord.TextChannel=None):
-    with open(os.path.join(BASE, 'resources', 'serverdata.json'), 'r') as f:
+    with open(os.path.join(BASEDIR, 'resources', 'serverdata.json'), 'r') as f:
         data = json.load(f)
 
     if channel == None:
@@ -34,13 +35,18 @@ async def _miscchannel(ctx, channel: discord.TextChannel=None):
         embed = discord.Embed(title=f"Disabled commands in {channel}", color=color)
         await ctx.send(embed=embed)
 
-    with open(os.path.join(BASE, 'resources', 'serverdata.json'), 'w') as f:
+    with open(os.path.join(BASEDIR, 'resources', 'serverdata.json'), 'w') as f:
         json.dump(data, f, indent=4)
 
 
 def _getpuns():
-    with open(os.path.join(BASE, 'resources', 'serverdata.json'), 'r', encoding="utf8") as f:
+    with open(os.path.join(BASEDIR, 'resources', 'serverdata.json'), 'r', encoding="utf8") as f:
         data = json.load(f)
 
     return data["puns"]
     
+def _getdescriptions(key):
+    with open(os.path.join(BASEDIR, 'resources', 'descriptions.json'), 'r', encoding="utf8") as f:
+        data = json.load(f)
+
+    return data[key]

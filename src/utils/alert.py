@@ -1,9 +1,7 @@
 
-from utils.settings import color
-from utils.settings import client
-from utils.settings import ownerid
-
 import discord
+
+from utils.settings import client, color, ownerid
 
 
 async def _alert(ctx, action, data=None):

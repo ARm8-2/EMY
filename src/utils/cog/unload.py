@@ -1,14 +1,14 @@
 
-from utils.settings import client
-from utils.settings import BASE
-from utils.alert import _alert
-
 import os
-from discord.ext import commands
 
-async def _unloadext(ctx, extension):
+from discord.ext import commands
+from utils.alert import _alert
+from utils.settings import BASEDIR, client
+
+
+async def _unload(ctx, extension):
     if extension == 'all':
-        for filename in os.listdir(os.path.join(BASE, 'src', 'cogs')):
+        for filename in os.listdir(os.path.join(BASEDIR, 'src', 'cogs')):
             if filename.endswith('.py'):
                 try:
                     client.unload_extension(f'cogs.{filename[:-3]}')
