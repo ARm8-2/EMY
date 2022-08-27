@@ -1,3 +1,9 @@
 {
-    
+    "shutdown": "Shutting down...",
+    "load": "Loaded {data}",
+    "reload": "Reloaded {data}",
+    "unload": "Unloaded {data}",
+    "checkloaded": "Checked for unloaded cogs",
+    "guildjoined": "EMY joined new server: {data}",
+    "guildremoved": "EMY removed from server: {data}"
 }
