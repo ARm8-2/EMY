@@ -1,5 +1,5 @@
 
-from commands.help import _help
+from commands.help.help import _help
 from discord.ext import commands
 
 
