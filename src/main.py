@@ -16,15 +16,15 @@ client.remove_command('help')
 logging.basicConfig(level=logging.INFO)
 
 @client.command()
-async def load(ctx, extension):
+async def load(ctx: commands.Context, extension):
     await _load(ctx=ctx, extension=extension)
 
 @client.command()
-async def reload(ctx, extension):
+async def reload(ctx: commands.Context, extension):
     await _reload(ctx=ctx, extension=extension)
 
 @client.command()
-async def unload(ctx, extension):
+async def unload(ctx: commands.Context, extension):
     await _unload(ctx=ctx, extension=extension)
 
 @client.event
@@ -43,7 +43,7 @@ async def on_ready():
     print('Logged in as:\n{0.user.name}\n{0.user.id}'.format(client))
 
 @client.event
-async def on_command_error(ctx, error):
+async def on_command_error(ctx: commands.Context, error):
     if isinstance(error, commands.MissingRequiredArgument) or isinstance(error, commands.MissingPermissions):
         await ctx.send('An error occurred: {}'.format(str(error)))
 

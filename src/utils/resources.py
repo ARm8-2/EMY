@@ -3,11 +3,12 @@ import json
 import os
 
 import discord
+from discord.ext import commands
 
 from utils.settings import BASEDIR, color
 
 
-async def _changeprefix(ctx, prefix):
+async def _changeprefix(ctx: commands.Context, prefix):
     with open(os.path.join(BASEDIR, 'resources', 'serverdata.json'), 'r') as f:
         data = json.load(f)
 
@@ -19,7 +20,7 @@ async def _changeprefix(ctx, prefix):
     embed = discord.Embed(title="", description=f"Prefix changed to {prefix}", color=color)
     await ctx.send(embed=embed)
 
-async def _miscchannel(ctx, channel: discord.TextChannel=None):
+async def _miscchannel(ctx: commands.Context, channel: discord.TextChannel=None):
     with open(os.path.join(BASEDIR, 'resources', 'serverdata.json'), 'r') as f:
         data = json.load(f)
 

@@ -3,11 +3,12 @@ import json
 import os
 
 import discord
+from discord.ext import commands
 
 from utils.settings import BASEDIR, client, color, ownerid
 
 
-async def _alert(ctx, action, data=None):
+async def _alert(ctx: commands.Context, action, data=None):
     embed = discord.Embed(title="ALERT", color=color)
 
     with open(os.path.join(BASEDIR, 'resources', 'alerts.json'), 'r') as f:
@@ -17,9 +18,9 @@ async def _alert(ctx, action, data=None):
 
     if action=="load" or action=="reload" or action=="unload":
         if data!='all':
-            description.replace({data}, f'{data}.py')
+            description.replace("{data}", f'{data}.py')
         elif data=='all':
-            description.replace({data}, f'all cogs')
+            description.replace("{data}", f'all cogs')
 
     if action=='checkloaded':
         embed.add_field(name="Loaded", value=str(data["loaded"]))

@@ -6,7 +6,7 @@ from utils.alert import _alert
 from utils.settings import BASEDIR, client
 
 
-async def _load(ctx, extension):
+async def _load(ctx: commands.Context, extension):
     if extension == 'all':
         for filename in os.listdir(os.path.join(BASEDIR, 'src', 'cogs')):
             if filename.endswith('.py'):

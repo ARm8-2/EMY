@@ -9,8 +9,8 @@ class Help(commands.Cog):
         self.client = client
 
     @commands.command(name='help')
-    async def _help(self, ctx):
-        await _help(self, ctx)
+    async def _help(self, ctx: commands.Context):
+        await _help(self, ctx=ctx)
 
 def setup(client):
     client.add_cog(Help(client))

@@ -2,10 +2,11 @@
 import json
 import os
 
+from discord.ext import commands
 from utils.settings import BASEDIR
 
 
-def _checkmiscchannel(ctx):
+def _checkmiscchannel(ctx: commands.Context):
     if ctx.guild==None:
         return True
     else:

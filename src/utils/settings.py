@@ -25,7 +25,7 @@ with open(os.path.join(BASEDIR, 'src', 'settings', 'config.json'), 'r') as f:
     ownerid = data["ownerid"]
     color = int(data["color"], 16)
 
-def _getprefix(client, ctx):
+def _getprefix(client, ctx: commands.Context):
     with open(os.path.join(BASEDIR, 'resources', 'serverdata.json'), 'r') as f:
         data = json.load(f)
 

@@ -6,7 +6,7 @@ from utils.alert import _alert
 from utils.settings import BASEDIR, client
 
 
-async def _checkloadedext(ctx, extension=None):
+async def _checkloadedext(ctx: commands.Context, extension=None):
     dir = {'loaded': [], 'notloaded':  []}
 
     if extension=='all' or extension==None:
