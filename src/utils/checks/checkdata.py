@@ -14,5 +14,4 @@ def _datacheck():
 async def check():
     while datachecks:
         await _checkloadedext(ctx=None, extension='all')
-        for guild in client.guilds:
-            _checkservername(guild)
+        await _checkservername(guild='all')

@@ -6,13 +6,13 @@ from discord.ext import commands
 
 from events.guild.on_guild_join import _on_guild_join
 from events.guild.on_guild_remove import _on_guild_remove
+from utils.checks.checkservername import _checkservername
 from utils.cog.load import _load
 from utils.cog.reload import _reload
 from utils.cog.unload import _unload
 from utils.settings import BASEDIR, client, prefix, token
 
 client.remove_command('help')
-print(f'INFO:base.directory:{BASEDIR}')
 logging.basicConfig(level=logging.INFO)
 
 @client.event
