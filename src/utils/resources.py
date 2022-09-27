@@ -1,6 +1,7 @@
 
 import json
 import os
+import random
 
 import discord
 from discord.ext import commands
@@ -51,3 +52,12 @@ def _getdescriptions(key):
         data = json.load(f)
 
     return data[key]
+
+def _getmaze(key:int):
+    with open(os.path.join(BASEDIR, 'resources', 'games.json'), 'r', encoding="utf8") as f:
+        data = json.load(f)
+    if key==0:
+        return data["mazes"][str(random.randint(1, 5))]
+    else:
+        return data["mazes"][str(key)]
+        

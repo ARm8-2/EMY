@@ -11,7 +11,7 @@ class Utils(commands.Cog):
         self.client = client
 
     @commands.command(name='changeprefix', aliases=['prefix'])
-    async def _changeprefic(self, ctx: commands.Context, prefix):
+    async def _changeprefix(self, ctx: commands.Context, prefix):
         await _changeprefix(ctx=ctx, prefix=prefix)
 
     @commands.command(name='misccchannel')

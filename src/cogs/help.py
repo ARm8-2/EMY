@@ -10,7 +10,7 @@ class Help(commands.Cog):
 
     @commands.command(name='help')
     async def _help(self, ctx: commands.Context):
-        await _help(self, ctx=ctx)
+        await _help(ctx=ctx)
 
 def setup(client):
     client.add_cog(Help(client))
